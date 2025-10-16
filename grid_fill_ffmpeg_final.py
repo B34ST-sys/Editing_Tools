@@ -1,8 +1,8 @@
 import os, shutil, subprocess, sys
 
 # ---- controls ----
-INPUT  = os.path.expanduser("~/Desktop/Crast/Concepts/link.mp4")
-OUTPUT = os.path.expanduser("~/Desktop/Crast/Concepts/collage_fill.mp4")
+INPUT  = os.path.expanduser("~/Desktop/video.mp4")
+OUTPUT = os.path.expanduser("~/Desktop/collage_fill.mp4")
 ROWS, COLS = 4, 4            # grid size
 FILL_DURATION = 4.0          # seconds until all squares are on
 
