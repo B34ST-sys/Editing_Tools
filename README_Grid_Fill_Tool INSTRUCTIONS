@@ -1,0 +1,66 @@
+README_Grid_Fill_Tool INSTRUCTIONS:
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+The Grid Fill Tool is a video editing tool that takes a clip and breaks it up into numerous equivalent squares. 
+It begins with a single square and slowly builds out into the entire image beat-by-beat, square-by-square until the image is full.
+
+The number of squares can be modified in the program if need be, as can the speed of which each one appears.
+
+This tool is remarkably useful for edits involving tie ins with musical cues, represented in the proof of concept mp4 file on this repository.
+
+In order to run this file you will need:
+ - Python 3.9+ (no additional packages for Python are necessary, the program uses the base tools)
+ - ffmpeg library
+
+------------------------------------------------------------------------------------------------
+Installation Instructions:
+MacOS:
+Open Terminal and type in: 
+      brew install ffmpeg
+
+Windows:
+Open Command Prompt and type in either:
+      scoop install ffmpeg
+OR
+      choco install ffmpeg
+OR you can download a static build and add its bin folder to PATH.
+
+Ubuntu/Debian:
+Open terminal and type in:
+      sudo apt update && sudo apt install ffmpeg
+
+Fedora:
+Open terminal and type in:
+      sudo dnf install ffmpeg
+
+
+To ensure your installation will operate appropriately (for any OS) type in:
+      ffmpeg -filters | grep -E 'overlay|crop|format|geq'
+If your prompt outputs: "overlay, crop, format, geq" then you are ready to run the grid tool.
+
+
+------------------------------------------------------------------------------------------------
+Before running the program you will need to add in your original mp4 file. 
+Simply change the PATH in the first line: INPUT = os.path.expanduser("~/Desktop/video.mp4")
+Replace the PATH with wherever you wish to pull the video from. (I use a Mac so the pathname will not be the same as it is here)
+Keep in mind the OUTPUT line below which states the name of the new edited file, should have it's PATH in the same location as the orignal file. 
+This is not necessary but it is easier for simplicity.
+
+Once you have your file ready to be edited, the final (optional) step is to change the number of squares and the length at which it takes to fill in the entire image.
+
+To change the grid size, simply alter the ROWS and COLS line at the top to however many rows and columns you wish the video to be broken up into.
+          ROWS, COLS = 4, 4   # e.g., 3,3 (3×3), 8,8 (8×8), etc.
+
+To change the speed/time at which the squares fill in the entire video, simply alter the FILL_DURATION line below the ROWS/COLS line at the top.
+          FILL_DURATION = 4.0          # seconds until all squares are on
+
+DO NOT SET FILL_DURATION TO A VALUE GREATER THAN THE ORIGINAL FILE LENGTH
+
+
+------------------------------------------------------------------------------------------------
+Final Instructions:
+Now that you have set the program to your specific needs and have installed the ffmpeg library simply run the program in your terminal/command prompt and the program will create your newly edited grid video clip for you!
+
+
+Enjoy! Cheers and happy editing!
+-------------------------------------------------------------------------------------------------------------------------------------------------
